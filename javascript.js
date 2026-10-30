@@ -17,7 +17,12 @@ function getHumanChoice() {
     return choice
 }
 
-function round(human, computer) {
+function round() {
+    let human = getHumanChoice();
+    console.log(human);
+    let computer = getComputerChoice();
+    console.log(computer);
+
     if (human === "ROCK") {
         if (computer === "PAPER") {
             // computer wins
@@ -53,36 +58,10 @@ function round(human, computer) {
     }
 }
 
-function game() {
-    let computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    let humanChoice = getHumanChoice();
-    console.log(humanChoice);
-    round(humanChoice, computerChoice);
-
-    computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    humanChoice = getHumanChoice();
-    console.log(humanChoice);
-    round(humanChoice, computerChoice);
-
-    computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    humanChoice = getHumanChoice();
-    console.log(humanChoice);
-    round(humanChoice, computerChoice);
-
-    computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    humanChoice = getHumanChoice();
-    console.log(humanChoice);
-    round(humanChoice, computerChoice);
-
-    computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    humanChoice = getHumanChoice();
-    console.log(humanChoice);
-    round(humanChoice, computerChoice);
+function game(rounds) {
+    for (let i = 0; i < rounds; i++) {
+        round();
+    }
 
     if (humanScore > computerScore) {
         console.log(`You beat the computer! ${humanScore} : ${computerScore}`);
@@ -94,4 +73,4 @@ function game() {
 
 }
 
-game();
+game(5);
